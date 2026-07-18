@@ -47,11 +47,11 @@ public class EmployeeController {
 		return ResponseEntity.ok(singleEmp);
 	}
 	
-	public Employee updateEmployee(@PathVariable String Id,@RequestBody Employee employee){
+	public ResponseEntity<Employee> updateEmployee(@PathVariable String Id,@RequestBody Employee employee){
 		
 		Employee updatedEmp=employeeService.updateEmployeeById(employee,Id);
 		
-		return updatedEmp;
+		return ResponseEntity.ok(updatedEmp);
 		
 	}
 	
