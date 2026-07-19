@@ -30,6 +30,7 @@ public class EmployeeController {
 	@PostMapping("/add")
 	public ResponseEntity<String> addEmployee(@RequestBody Employee employee){
 		
+		logger.info("adding employee");
 		employeeService.saveEmployee(employee);
 		
 		return ResponseEntity.ok("Employee added successfully");
