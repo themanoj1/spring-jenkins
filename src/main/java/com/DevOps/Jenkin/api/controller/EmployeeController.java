@@ -2,6 +2,8 @@ package com.DevOps.Jenkin.api.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,10 @@ public class EmployeeController {
 	@Autowired
 	public EmployeeService employeeService;
 	
+	 private static final Logger logger =
+	            LoggerFactory.getLogger(EmployeeController.class);
+	 
+	
 	@PostMapping("/add")
 	public ResponseEntity<String> addEmployee(@RequestBody Employee employee){
 		
@@ -33,7 +39,10 @@ public class EmployeeController {
 	@GetMapping()
 	public ResponseEntity<List<Employee>> getAllEmployee(){
 		
+		logger.info("Get/employee called");
+		
 		List<Employee> employees=employeeService.findEmployee();
+		
 		
 		return ResponseEntity.ok(employees);
 		
