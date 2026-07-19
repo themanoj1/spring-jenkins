@@ -38,7 +38,7 @@ public class Employee {
 		return emailId;
 	}
 
-	public  setEmailId(String emailId) {
+	public void  setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
 
